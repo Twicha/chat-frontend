@@ -1,0 +1,49 @@
+@import "src/shared/styles/mixins/media-queries";
+
+.auth-language-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &__title {
+    margin-right: 1rem;
+    font-size: 1.6rem;
+    line-height: 1.9rem;
+    color: var(--dark-gray);
+
+    @include mobile-large {
+      font-size: 1.4rem;
+      line-height: 1.7rem;
+    }
+  }
+
+  &__lang {
+    min-width: 3.8rem;
+    width: 3.8rem;
+    height: 3.8rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    color: var(--dark-blue);
+    text-transform: uppercase;
+    border-radius: var(--border-radius);
+    position: relative;
+
+    @include mobile-large {
+      min-width: 2.8rem;
+      width: 2.8rem;
+      height: 2.8rem;
+      font-size: 1.6rem;
+      line-height: 1.9rem;
+    }
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &--active {
+      background: var(--dark-blue);
+      color: var(--white);
+    }
+  }
+}

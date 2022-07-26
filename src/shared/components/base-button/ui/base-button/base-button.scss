@@ -1,0 +1,132 @@
+.base-button {
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  appearance: none;
+  color: var(--black);
+  transition: color 100ms linear, background-color 100ms linear;
+  font-size: 1.6rem;
+  line-height: 100%;
+  position: relative;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    filter: brightness(0.8);
+  }
+
+  &--block {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &--size {
+    border: 1px solid transparent;
+
+    &_default {
+      padding: 0.9rem 2rem;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+
+    &_small {
+      padding: 0.5rem 2rem;
+      font-size: 1.2rem;
+      line-height: 1.6rem;
+    }
+
+    &_medium {
+      padding: 1.3rem 2.5rem;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+
+    &_large {
+      padding: 1.8rem 3.5rem;
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
+  }
+
+  &--color {
+    &_dark-blue {
+      background: var(--dark-blue);
+      color: var(--white);
+      border-color: var(--dark-blue);
+    }
+  }
+
+  &--outline &--color_dark-blue {
+    background: var(--white);
+    color: var(--dark-blue);
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    filter: contrast(0.5);
+    outline: 0;
+  }
+
+  &--loading {
+    pointer-events: none;
+  }
+
+  &--font-weight {
+    &_400 {
+      font-weight: 400;
+    }
+
+    &_bold {
+      font-weight: bold;
+    }
+  }
+
+  &--border-radius {
+    &_default {
+      border-radius: var(--border-radius);
+    }
+
+    &_small {
+      border-radius: var(--border-radius-small);
+    }
+
+    &_medium {
+      border-radius: var(--border-radius-medium);
+    }
+
+    &_large {
+      border-radius: var(--border-radius-large);
+    }
+  }
+
+  &__content {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  &--loading &__content {
+    opacity: 0;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-item {
+      animation: rotate360 2s linear infinite;
+    }
+  }
+}

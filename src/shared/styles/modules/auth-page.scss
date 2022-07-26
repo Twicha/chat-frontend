@@ -1,0 +1,28 @@
+@import "src/shared/styles/mixins/media-queries";
+
+.auth-page {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include mobile-large {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__lang-switcher {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+
+    @include mobile-large {
+      margin-bottom: 5rem;
+      position: static;
+      align-self: flex-end;
+    }
+  }
+}

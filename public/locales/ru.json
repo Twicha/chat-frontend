@@ -1,0 +1,21 @@
+{
+  "authForm.title.login": "Авторизация",
+  "authForm.title.registration": "Регистрация",
+  "authForm.form.description.login": "Ещё нет аккаунта?",
+  "authForm.form.description.registration": "Уже есть аккаунта?",
+  "authForm.form.description.link.login": "Зарегистрировать.",
+  "authForm.form.description.link.registration": "Войти.",
+  "authForm.form.btn.login": "Авторизоваться",
+  "authForm.form.btn.registration": "Зарегистрироваться",
+  "authForm.form.input.placeholder.phone": "Телефон",
+  "authForm.form.input.placeholder.password": "Пароль",
+  "authForm.form.input.placeholder.firstName": "Имя",
+  "authForm.form.input.placeholder.lastName": "Фамилия",
+  "################################################################": "################################################################",
+  "authLanguageSwitcher.title": "Выберите язык локализации:",
+  "################################################################": "################################################################",
+  "baseInput.error.required": "Поле обязательно к заполнению",
+  "baseInput.error.wrongPhoneFormat": "Номер телефона введён неверно",
+  "baseInput.error.passwordMin": "Пароль должен быть не меньше 8 символов",
+  "baseInput.error.passwordMax": "Пароль должен быть не больше 16 символов"
+}
