@@ -32,7 +32,7 @@ interface Props {
 export const AuthForm: FC<Props> = ({ authType, onSubmit }): ReactElement => {
   const { t } = useTranslation();
 
-  const { isLoading } = useAppSelector((state) => state.auth);
+  const { isLoading } = useAppSelector(({ auth }) => auth);
 
   const isRegistrationType: boolean = useMemo(
     () => authType === "registration",

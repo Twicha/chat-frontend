@@ -4,6 +4,8 @@ import { Navigate, Outlet } from "react-router-dom";
 
 import { useAppSelector } from "src/shared/hooks";
 
+import { selectHasAccess } from "src/shared/modules";
+
 interface Props {
   redirectUrl?: string;
 }
@@ -11,7 +13,7 @@ interface Props {
 export const PrivateRoute: FC<Props> = ({
   redirectUrl = "/login",
 }): ReactElement => {
-  const hasAccess = useAppSelector((state) => state.appAccess.hasAppAccess);
+  const hasAccess = useAppSelector(selectHasAccess);
 
   return hasAccess ? <Outlet /> : <Navigate to={redirectUrl} />;
 };

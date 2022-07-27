@@ -1,15 +1,13 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+
+import { authFulfilled, authPending, authRejected } from "../lib";
 
 import { fetchLoginAction, fetchRegistrationAction } from "./auth.thunk";
 
-interface AuthState {
-  token: string | null;
-  isLoading: boolean;
-  error: string;
-}
+import { AuthState } from "./types";
 
 const initialState: AuthState = {
-  token: null,
+  token: localStorage.getItem("token"),
   isLoading: false,
   error: "",
 };
@@ -21,56 +19,16 @@ export const authSlice = createSlice({
     resetStore() {
       localStorage.removeItem("token");
 
-      return initialState;
+      return { ...initialState, token: null };
     },
   },
   extraReducers: {
-    [fetchRegistrationAction.fulfilled.type]: (
-      state,
-      action: PayloadAction<string>
-    ) => {
-      state.isLoading = false;
-
-      state.error = "";
-
-      state.token = action.payload;
-
-      localStorage.setItem("token", action.payload);
-    },
-    [fetchRegistrationAction.pending.type]: (state) => {
-      state.isLoading = true;
-    },
-    [fetchRegistrationAction.rejected.type]: (
-      state,
-      action: PayloadAction<string>
-    ) => {
-      state.isLoading = false;
-
-      state.error = action.payload;
-    },
-    [fetchLoginAction.fulfilled.type]: (
-      state,
-      action: PayloadAction<string>
-    ) => {
-      state.isLoading = false;
-
-      state.error = "";
-
-      state.token = action.payload;
-
-      localStorage.setItem("token", action.payload);
-    },
-    [fetchLoginAction.pending.type]: (state) => {
-      state.isLoading = true;
-    },
-    [fetchLoginAction.rejected.type]: (
-      state,
-      action: PayloadAction<string>
-    ) => {
-      state.isLoading = false;
-
-      state.error = action.payload;
-    },
+    [fetchRegistrationAction.fulfilled.type]: authFulfilled,
+    [fetchRegistrationAction.pending.type]: authPending,
+    [fetchRegistrationAction.rejected.type]: authRejected,
+    [fetchLoginAction.fulfilled.type]: authFulfilled,
+    [fetchLoginAction.pending.type]: authPending,
+    [fetchLoginAction.rejected.type]: authRejected,
   },
 });
 

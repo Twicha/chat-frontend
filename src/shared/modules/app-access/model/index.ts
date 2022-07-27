@@ -1,1 +1,1 @@
-export * from "./app-access.slice";
+export * from "./app-access.select";
