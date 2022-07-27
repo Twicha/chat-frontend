@@ -1,16 +1,17 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactElement, useEffect } from "react";
 
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import "./404-page.scss";
 
 interface Props {}
 
 export const Page404: FC<Props> = (): ReactElement => {
-  return (
-    <div>
-      Page 404
-      <Link to="/">Вернуться на главную</Link>
-    </div>
-  );
+  useEffect(() => {
+    alert(
+      "Данной страницы не существует. Вы были перенаправлены на стартовую страницу."
+    );
+  }, []);
+
+  return <Navigate to="/" replace />;
 };
