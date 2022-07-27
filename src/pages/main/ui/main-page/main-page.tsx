@@ -4,6 +4,8 @@ import { useAppDispatch } from "src/shared/hooks";
 
 import { authSlice } from "src/shared/modules";
 
+import { Sidebar } from "src/widgets/sidebar";
+
 import "./main-page.scss";
 
 interface Props {}
@@ -14,7 +16,8 @@ export const MainPage: FC<Props> = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   return (
-    <div>
+    <div className="main-page">
+      <Sidebar />
       <button
         onClick={() => {
           dispatch(resetStore());
