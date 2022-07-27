@@ -1,0 +1,8 @@
+.sidebar {
+  width: 42rem;
+  height: 100vh;
+  border-right: 0.1rem solid var(--extra-light-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
