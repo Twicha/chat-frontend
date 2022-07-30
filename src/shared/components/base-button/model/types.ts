@@ -1,6 +1,6 @@
 export type TBaseButtonSize = "none" | "default" | "small" | "medium" | "large";
 
-export type TBaseButtonColor = "dark-blue";
+export type TBaseButtonColor = "dark-blue" | "red";
 
 export type TBaseButtonFontWeight = "400" | "bold";
 

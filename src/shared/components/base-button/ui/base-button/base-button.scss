@@ -11,24 +11,15 @@
   font-size: 1.6rem;
   line-height: 100%;
   position: relative;
-
-  &:hover {
-    filter: brightness(1.1);
-  }
-
-  &:active {
-    filter: brightness(0.8);
-  }
+  border: 0.1rem solid transparent;
 
   &--block {
     display: flex;
-    flex-grow: 1;
+    flex-shrink: 1;
     width: 100%;
   }
 
   &--size {
-    border: 1px solid transparent;
-
     &_default {
       padding: 0.9rem 2rem;
       font-size: 1.4rem;
@@ -59,12 +50,63 @@
       background: var(--dark-blue);
       color: var(--white);
       border-color: var(--dark-blue);
+
+      &:hover:not(:disabled) {
+        background: var(--dark-blue-lighten);
+        border-color: var(--dark-blue-lighten);
+      }
+
+      &:active:not(:disabled) {
+        background: var(--dark-blue-darken);
+        border-color: var(--dark-blue-darken);
+      }
+    }
+
+    &_red {
+      background: var(--red);
+      color: var(--white);
+      border-color: var(--red);
+
+      &:hover:not(:disabled) {
+        background: var(--red-lighten);
+        border-color: var(--red-lighten);
+      }
+
+      &:active:not(:disabled) {
+        background: var(--red-darken);
+        border-color: var(--red-darken);
+      }
     }
   }
 
-  &--outline &--color_dark-blue {
+  &--outline.base-button--color_dark-blue {
     background: var(--white);
     color: var(--dark-blue);
+
+    &:hover:not(:disabled) {
+      background: var(--white);
+      color: var(--dark-blue-lighten);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--white);
+      color: var(--dark-blue-darken);
+    }
+  }
+
+  &--outline.base-button--color_red {
+    background: var(--white);
+    color: var(--red);
+
+    &:hover:not(:disabled) {
+      background: var(--white);
+      color: var(--red-lighten);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--white);
+      color: var(--red-darken);
+    }
   }
 
   &--disabled {
@@ -109,6 +151,8 @@
     font-size: inherit;
     line-height: inherit;
     font-weight: inherit;
+    transition: inherit;
+    color: inherit;
   }
 
   &--loading &__content {
