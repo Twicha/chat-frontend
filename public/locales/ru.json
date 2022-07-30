@@ -17,5 +17,7 @@
   "baseInput.error.required": "Поле обязательно к заполнению",
   "baseInput.error.wrongPhoneFormat": "Номер телефона введён неверно",
   "baseInput.error.passwordMin": "Пароль должен быть не меньше 8 символов",
-  "baseInput.error.passwordMax": "Пароль должен быть не больше 16 символов"
+  "baseInput.error.passwordMax": "Пароль должен быть не больше 16 символов",
+  "################################################################": "################################################################",
+  "mainContent.header.title.account-settings": "Изменить профиль"
 }

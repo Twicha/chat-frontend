@@ -1,9 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { authReducer } from "src/shared/modules";
+import { authReducer, accountReducer } from "src/shared/modules";
+
+import { mainContentReducer } from "src/entities/main-content";
 
 const rootReducer = combineReducers({
   auth: authReducer,
+  account: accountReducer,
+  mainContent: mainContentReducer,
 });
 
 export const setupStore = () => {
