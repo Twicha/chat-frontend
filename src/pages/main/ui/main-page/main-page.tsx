@@ -13,6 +13,8 @@ import { AccountSettings } from "src/features/settings";
 
 import { Sidebar } from "src/widgets/sidebar";
 
+import { Sidebar } from "src/widgets/sidebar";
+
 import "./main-page.scss";
 
 interface Props {}
