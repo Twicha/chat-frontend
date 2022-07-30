@@ -1,0 +1,49 @@
+@import "src/shared/styles/mixins/utils";
+
+.main-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &--animate {
+    animation: show-main-content 0.3s forwards;
+  }
+
+  &__header {
+    padding: 0 1.5rem;
+    height: 5.6rem;
+    border-bottom: 0.1rem solid var(--extra-light-gray);
+    display: flex;
+    align-items: center;
+
+    &-btn {
+      @include bgImage($size: 50%);
+
+      min-width: 3rem;
+      width: 3rem;
+      height: 3rem;
+      background-image: url("../../../../shared/images/icons/arrow-left-gray.svg");
+      border-radius: 50%;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    &-title {
+      margin-left: 0.5rem;
+      font-size: 1.8rem;
+      color: var(--black);
+    }
+  }
+
+  &__children {
+    padding: 3rem;
+  }
+
+  &--no-padding &__children {
+    padding: 0;
+  }
+}

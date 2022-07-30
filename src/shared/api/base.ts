@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const baseURL = "http://localhost:5001";
+const baseURL =
+  process.env.REACT_APP_MAIN_URL_BACKEND || "http://192.168.1.107:5001";
+
+console.log(process.env.REACT_APP_MAIN_URL_BACKEND);
 
 const apiInstance = axios.create({
   baseURL,
@@ -9,6 +12,12 @@ const apiInstance = axios.create({
 apiInstance.interceptors.request.use(
   async (config) => {
     config.baseURL = baseURL;
+
+    config.headers = {
+      Accept: "application/json",
+      "Content-type": "application/json; charset=UTF-8",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    };
 
     return config;
   },

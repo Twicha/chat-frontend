@@ -7,3 +7,13 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes show-main-content {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

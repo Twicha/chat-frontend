@@ -17,5 +17,7 @@
   "baseInput.error.required": "The field is required",
   "baseInput.error.wrongPhoneFormat": "Phone number entered incorrectly",
   "baseInput.error.passwordMin": "Password must be no less than 8 characters",
-  "baseInput.error.passwordMax": "Password must be no more than 16 characters"
+  "baseInput.error.passwordMax": "Password must be no more than 16 characters",
+  "################################################################": "################################################################",
+  "mainContent.header.title.account-settings": "Edit Profile"
 }

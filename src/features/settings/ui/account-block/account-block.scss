@@ -1,0 +1,70 @@
+@import "src/shared/styles/mixins/utils";
+
+.account-block {
+  padding: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  position: relative;
+  border-radius: var(--border-radius-medium);
+
+  &--active {
+    background: var(--blue);
+  }
+
+  &::after {
+    @include bgImage($size: 2.2rem);
+
+    min-width: 2rem;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 1.5rem;
+    background-image: url("../../../../shared/images/icons/arrow-right-gray.svg");
+  }
+
+  &--active {
+    &::after {
+      display: none;
+    }
+  }
+
+  &__avatar {
+    margin-right: 2rem;
+    min-width: 7rem;
+    width: 7rem;
+    height: 7rem;
+    background: linear-gradient(#a0de7e, #54cb68);
+    border-radius: 50%;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 2.8rem;
+    line-height: 7rem;
+    text-align: center;
+  }
+
+  &__name {
+    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__username {
+    margin-top: 0.3rem;
+  }
+
+  &__phone,
+  &__username {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    color: var(--gray);
+  }
+
+  &--active * {
+    color: var(--white);
+  }
+}
