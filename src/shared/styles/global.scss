@@ -72,12 +72,16 @@ button {
   --field-height: 5.6rem;
 
   --white: #ffffff;
+  --black-darken: hsl(0, 0%, 0%);
   --black: #1a1a1a;
+  --black-lighten: hsl(0, 0%, 20%);
   --dark-gray: #63677c;
   --gray: #8b8fa4;
   --extra-light-gray: #d4daec;
   --lightest-gray: #f8fafb;
+  --dark-blue-darken: hsl(230, 58%, 27%);
   --dark-blue: #283a97;
+  --dark-blue-lighten: hsl(230, 58%, 47%);
   --blue: #00aeef;
   --light-blue: #00e0ff;
   --purple: #6e56ff;
@@ -86,7 +90,9 @@ button {
   --sea-wave: #00c4d0;
   --green: #00d085;
   --light-green: #b9f8d6;
+  --red-darken: hsl(0, 100%, 52%);
   --red: #ff3d3d;
+  --red-lighten: hsl(0, 100%, 72%);
   --light-red: #ffc9c9;
   --orange: #ff9900;
   --light-orange: #ffedca;

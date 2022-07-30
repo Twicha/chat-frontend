@@ -64,6 +64,7 @@ export const BaseButton: FC<PropsWithChildren<Props>> = ({
         "base-button--outline": outline,
         "base-button--disabled": disabled,
         "base-button--loading": isLoading,
+        "base-button--size": size,
         [`base-button--size_${size}`]: size,
         [`base-button--color_${color}`]: color,
         [`base-button--border-radius_${borderRadius}`]: borderRadius,

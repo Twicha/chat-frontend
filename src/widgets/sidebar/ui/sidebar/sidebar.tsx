@@ -1,4 +1,8 @@
+import classNames from "classnames";
+
 import { FC, ReactElement, useState } from "react";
+
+import { SettingsBlock } from "src/features/settings";
 
 import { ESidebarTabs } from "../../model";
 
@@ -6,24 +10,22 @@ import { SidebarTabs } from "../sidebar-tabs";
 
 import "./sidebar.scss";
 
-interface Props {}
+interface Props {
+  className?: string;
+}
 
-export const Sidebar: FC<Props> = (): ReactElement => {
+const tabsContent: Record<ESidebarTabs, ReactElement> = {
+  [ESidebarTabs.CONTACTS]: <div>CONTACTS</div>,
+  [ESidebarTabs.CHATS]: <div>CHATS</div>,
+  [ESidebarTabs.SETTINGS]: <SettingsBlock />,
+};
+
+export const Sidebar: FC<Props> = ({ className }): ReactElement => {
   const [activeTab, setActiveTab] = useState<ESidebarTabs>(ESidebarTabs.CHATS);
 
-  const isContactsTab: boolean = activeTab === ESidebarTabs.CONTACTS;
-
-  const isChatsTab: boolean = activeTab === ESidebarTabs.CHATS;
-
-  const isSettingsTab: boolean = activeTab === ESidebarTabs.SETTINGS;
-
   return (
-    <aside className="sidebar">
-      {isContactsTab && <div>contacts</div>}
-
-      {isChatsTab && <div>chats</div>}
-
-      {isSettingsTab && <div>settings</div>}
+    <aside className={classNames("sidebar", className)}>
+      {tabsContent[activeTab]}
 
       <SidebarTabs
         className="sidebar__tabs"
