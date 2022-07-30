@@ -15,6 +15,8 @@ import { Sidebar } from "src/widgets/sidebar";
 
 import { Sidebar } from "src/widgets/sidebar";
 
+import { Sidebar } from "src/widgets/sidebar";
+
 import "./main-page.scss";
 
 interface Props {}
