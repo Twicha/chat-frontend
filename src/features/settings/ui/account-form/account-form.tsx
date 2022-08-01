@@ -4,10 +4,13 @@ import { Formik, Form, Field } from "formik";
 
 import { isEqual } from "lodash";
 
+import { useTranslation } from "react-i18next";
+
 import {
   BaseInputText,
   BaseInputPhone,
   BaseButton,
+  BaseBox,
 } from "src/shared/components";
 
 import { useAppDispatch, useAppSelector } from "src/shared/hooks";
@@ -23,6 +26,8 @@ import "./account-form.scss";
 interface Props {}
 
 export const AccountForm: FC<Props> = (): ReactElement => {
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
 
   const { account, isLoading } = useAppSelector(({ account }) => account);
@@ -39,44 +44,47 @@ export const AccountForm: FC<Props> = (): ReactElement => {
     }),
     [account]
   );
+
   return (
-    <Formik<IAccountFormData>
-      initialValues={accountInfo}
-      validationSchema={formErrors()}
-      onSubmit={updateAccountHandler}
-    >
-      {({ values }) => (
-        <Form className="account-form">
-          <Field
-            name="firstName"
-            component={BaseInputText}
-            className="account-form__field"
-            required
-          />
-          <Field
-            name="lastName"
-            component={BaseInputText}
-            className="account-form__field"
-            required
-          />
-          <Field
-            type="phone"
-            name="phone"
-            component={BaseInputPhone}
-            className="account-form__field"
-            required
-          />
-          <BaseButton
-            buttonType="submit"
-            color="dark-blue"
-            size="medium"
-            isLoading={isLoading}
-            disabled={isEqual(values, accountInfo)}
-          >
-            Save
-          </BaseButton>
-        </Form>
-      )}
-    </Formik>
+    <BaseBox className="account-form-wrapper">
+      <Formik<IAccountFormData>
+        initialValues={accountInfo}
+        validationSchema={formErrors()}
+        onSubmit={updateAccountHandler}
+      >
+        {({ values }) => (
+          <Form className="account-form">
+            <Field
+              name="firstName"
+              component={BaseInputText}
+              className="account-form__field"
+              required
+            />
+            <Field
+              name="lastName"
+              component={BaseInputText}
+              className="account-form__field"
+              required
+            />
+            <Field
+              type="phone"
+              name="phone"
+              component={BaseInputPhone}
+              className="account-form__field"
+              required
+            />
+            <BaseButton
+              buttonType="submit"
+              color="dark-blue"
+              size="medium"
+              isLoading={isLoading}
+              disabled={isEqual(values, accountInfo)}
+            >
+              {t("common.save")}
+            </BaseButton>
+          </Form>
+        )}
+      </Formik>
+    </BaseBox>
   );
 };

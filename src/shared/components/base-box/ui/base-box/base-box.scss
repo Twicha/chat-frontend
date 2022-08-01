@@ -1,0 +1,12 @@
+@import "src/shared/styles/mixins/media-queries";
+
+.base-box {
+  padding: 2.5rem;
+  background: var(--white);
+  box-shadow: 0 0 1.5rem rgba(100, 163, 198, 0.15);
+  border-radius: var(--border-radius-medium);
+
+  @include tablet {
+    padding: 1.5rem;
+  }
+}
