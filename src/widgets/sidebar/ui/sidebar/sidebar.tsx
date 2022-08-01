@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import { FC, ReactElement, useState } from "react";
 
-import { SettingsBlock } from "src/features/settings";
+import { SettingsTab } from "src/features/settings";
 
 import { ESidebarTabs } from "../../model";
 
@@ -17,7 +17,7 @@ interface Props {
 const tabsContent: Record<ESidebarTabs, ReactElement> = {
   [ESidebarTabs.CONTACTS]: <div>CONTACTS</div>,
   [ESidebarTabs.CHATS]: <div>CHATS</div>,
-  [ESidebarTabs.SETTINGS]: <SettingsBlock />,
+  [ESidebarTabs.SETTINGS]: <SettingsTab />,
 };
 
 export const Sidebar: FC<Props> = ({ className }): ReactElement => {

@@ -1,17 +1,16 @@
 import { FC, ReactElement, useCallback, useEffect } from "react";
 
+import classNames from "classnames";
+
+import { BaseMessagePopup } from "src/shared/components";
+
 import { useAppDispatch, useAppSelector } from "src/shared/hooks";
 
-import {
-  MainContent,
-  EContentItemName,
-  mainContentSlice,
-  IActiveContentItem,
-} from "src/entities/main-content";
-
-import { AccountSettings } from "src/features/settings";
+import { mainContentSlice } from "src/entities/main-content";
 
 import { Sidebar } from "src/widgets/sidebar";
+
+import { mainContentItems } from "../../lib";
 
 import "./main-page.scss";
 
@@ -19,80 +18,44 @@ interface Props {}
 
 const { closeLastContentItem } = mainContentSlice.actions;
 
-const test: Record<EContentItemName, any> = {
-  [EContentItemName.ACCOUNT_SETTINGS]: (
-    item: IActiveContentItem,
-    index: number
-  ) => (
-    <AccountSettings
-      key={item.name + index}
-      contentItem={item}
-      positionNumber={index}
-    />
-  ),
-  [EContentItemName.PASSWORD_SETTINGS]: (
-    item: IActiveContentItem,
-    index: number
-  ) => (
-    <MainContent
-      key={item.name + index}
-      contentItem={item}
-      positionNumber={index}
-    >
-      password {index}
-    </MainContent>
-  ),
-  [EContentItemName.CHAT]: (item: IActiveContentItem, index: number) => (
-    <MainContent
-      key={item.name + index}
-      contentItem={item}
-      positionNumber={index}
-    >
-      chat {index}
-    </MainContent>
-  ),
-  [EContentItemName.LANGUAGE_SETTINGS]: (
-    item: IActiveContentItem,
-    index: number
-  ) => (
-    <MainContent
-      key={item.name + index}
-      contentItem={item}
-      positionNumber={index}
-    >
-      language {index}
-    </MainContent>
-  ),
-};
-
 export const MainPage: FC<Props> = (): ReactElement => {
   const dispatch = useAppDispatch();
 
   const { activeContent } = useAppSelector(({ mainContent }) => mainContent);
 
-  const closEContentItemName = useCallback(
+  const { activePopups } = useAppSelector(({ basePopup }) => basePopup);
+
+  const closeContentItemName = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === "Escape" && !activePopups.length) {
         dispatch(closeLastContentItem());
       }
     },
-    [dispatch]
+    [dispatch, activePopups]
   );
 
   useEffect(() => {
-    document.addEventListener("keydown", closEContentItemName);
+    document.addEventListener("keydown", closeContentItemName);
 
     return () => {
-      document.removeEventListener("keydown", closEContentItemName);
+      document.removeEventListener("keydown", closeContentItemName);
     };
-  }, [closEContentItemName]);
+  }, [closeContentItemName]);
 
   return (
     <div className="main-page">
       <Sidebar className="main-page__sidebar" />
-      <div className="main-page__content">
-        {activeContent.map((item, index) => test[item.name](item, index))}
+      <div
+        className={classNames("main-page__content", {
+          "main-page__content--has-content": activeContent.length,
+        })}
+      >
+        {activeContent.map((item, index) =>
+          mainContentItems[item.name](item, index)
+        )}
       </div>
+
+      <BaseMessagePopup />
     </div>
   );
 };

@@ -2,6 +2,8 @@ import { FC, ReactElement } from "react";
 
 import classNames from "classnames";
 
+import { BaseAvatar } from "src/shared/components";
+
 import { useAppSelector } from "src/shared/hooks";
 
 import "./account-block.scss";
@@ -30,9 +32,13 @@ export const AccountBlock: FC<Props> = ({
       })}
       onClick={onClick}
     >
-      <div className="account-block__avatar">
-        {`${account?.firstName[0] || ""}${account?.lastName[0] || ""}`}
-      </div>
+      {account && (
+        <BaseAvatar
+          className="account-block__avatar"
+          account={account}
+          size="large"
+        />
+      )}
       <div className="account-block__container">
         <div className="account-block__name">{fullName}</div>
         <div className="account-block__phone">{account?.phone}</div>
