@@ -8,7 +8,11 @@ import {
   FetchUpdateAccountPayload,
 } from "src/shared/api/account";
 
+import { basePopupSlice, EPopupName } from "src/shared/components";
+
 import { IAccount } from "./types";
+
+const { openPopup } = basePopupSlice.actions;
 
 export const fetchGetAccountAction = createAsyncThunk(
   "auth/fetchGetAccount",
@@ -33,6 +37,20 @@ export const fetchUpdateAccountAction = createAsyncThunk(
 
       return data;
     } catch (error: any) {
+      const errors = Object.keys(error.response.data).map(
+        (key) => `apiErrors.${key}.${error.response.data[key]}`
+      );
+
+      thunkAPI.dispatch(
+        openPopup({
+          name: EPopupName.MESSAGE,
+          message: {
+            text: errors,
+            isError: true,
+          },
+        })
+      );
+
       return thunkAPI.rejectWithValue(error.message);
     }
   }

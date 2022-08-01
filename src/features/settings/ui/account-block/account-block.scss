@@ -34,16 +34,6 @@
 
   &__avatar {
     margin-right: 2rem;
-    min-width: 7rem;
-    width: 7rem;
-    height: 7rem;
-    background: linear-gradient(#a0de7e, #54cb68);
-    border-radius: 50%;
-    color: var(--white);
-    font-weight: 500;
-    font-size: 2.8rem;
-    line-height: 7rem;
-    text-align: center;
   }
 
   &__name {
@@ -51,6 +41,7 @@
     font-size: 1.6rem;
     line-height: 1.8rem;
     font-weight: 600;
+    color: var(--black);
   }
 
   &__username {

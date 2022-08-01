@@ -19,5 +19,14 @@
   "baseInput.error.passwordMin": "Password must be no less than 8 characters",
   "baseInput.error.passwordMax": "Password must be no more than 16 characters",
   "################################################################": "################################################################",
-  "mainContent.header.title.account-settings": "Edit Profile"
+  "mainContent.header.title.account-settings": "Edit Profile",
+  "mainContent.header.title.language-settings": "Language",
+  "################################################################": "################################################################",
+  "settingsTab.btn.language-settings": "Language",
+  "################################################################": "################################################################",
+  "apiErrors.phone.unique violation": "The phone number is already in use by another user",
+  "################################################################": "################################################################",
+  "common.okey": "Okey",
+  "common.save": "Save",
+  "common.logout": "Logout"
 }

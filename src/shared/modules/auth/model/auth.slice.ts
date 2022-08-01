@@ -16,7 +16,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    resetStore() {
+    logout() {
       localStorage.removeItem("token");
 
       return { ...initialState, token: null };

@@ -1,0 +1,72 @@
+@import "src/shared/styles/mixins/utils";
+
+.base-avatar {
+  @include bgImage();
+
+  min-width: var(--size);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  color: var(--white);
+  font-weight: 500;
+  font-size: calc(2rem * var(--multiplier));
+  line-height: var(--size);
+  text-align: center;
+  text-transform: uppercase;
+  background-image: linear-gradient(var(--color-top), var(--color-bottom));
+
+  &[data-size="default"] {
+    --size: 4.8rem;
+    --multiplier: 1;
+  }
+
+  &[data-size="small"] {
+    --size: 4rem;
+    --multiplier: 0.83;
+  }
+
+  &[data-size="medium"] {
+    --size: 4.4rem;
+    --multiplier: 0.92;
+  }
+
+  &[data-size="large"] {
+    --size: 7rem;
+    --multiplier: 1.45;
+  }
+
+  &[data-color="red"] {
+    --color-top: var(--user-avatar-empty-red-top);
+    --color-bottom: var(--user-avatar-empty-red-bottom);
+  }
+
+  &[data-color="orange"] {
+    --color-top: var(--user-avatar-empty-orange-top);
+    --color-bottom: var(--user-avatar-empty-orange-bottom);
+  }
+
+  &[data-color="violet"] {
+    --color-top: var(--user-avatar-empty-violet-top);
+    --color-bottom: var(--user-avatar-empty-violet-bottom);
+  }
+
+  &[data-color="green"] {
+    --color-top: var(--user-avatar-empty-green-top);
+    --color-bottom: var(--user-avatar-empty-green-bottom);
+  }
+
+  &[data-color="cyan"] {
+    --color-top: var(--user-avatar-empty-cyan-top);
+    --color-bottom: var(--user-avatar-empty-cyan-bottom);
+  }
+
+  &[data-color="blue"] {
+    --color-top: var(--user-avatar-empty-blue-top);
+    --color-bottom: var(--user-avatar-empty-blue-bottom);
+  }
+
+  &[data-color="pink"] {
+    --color-top: var(--user-avatar-empty-pink-top);
+    --color-bottom: var(--user-avatar-empty-pink-bottom);
+  }
+}

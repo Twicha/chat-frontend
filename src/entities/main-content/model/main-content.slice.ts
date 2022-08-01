@@ -20,6 +20,10 @@ export const mainContentSlice = createSlice({
     closeLastContentItem,
     closeAllContentItems,
   },
+  extraReducers: (builder) =>
+    builder.addCase("auth/logout", (state) => {
+      state.activeContent = [];
+    }),
 });
 
 export const mainContentReducer = mainContentSlice.reducer;
