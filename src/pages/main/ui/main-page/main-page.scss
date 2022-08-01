@@ -16,5 +16,23 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+    background: var(--white);
+
+    @include tablet {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      transform: translateX(100%);
+      transition: 0.3s;
+    }
+
+    &--has-content {
+      @include tablet {
+        transform: translateX(0);
+      }
+    }
   }
 }

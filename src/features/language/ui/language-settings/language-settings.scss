@@ -1,0 +1,54 @@
+@import "src/shared/styles/mixins/utils";
+
+.language-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__list {
+    padding: 0 1.5rem;
+    max-width: 45rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      padding: 1rem 0;
+      width: 100%;
+      text-align: left;
+      position: relative;
+
+      &--active {
+        &::after {
+          @include bgImage($size: contain);
+
+          content: "";
+          min-width: 2rem;
+          width: 2rem;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          background-image: url("../../../../shared/images/icons/check-blue.svg");
+        }
+      }
+
+      &-title {
+        margin-bottom: 0.5rem;
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        color: var(--black);
+      }
+
+      &-description {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        color: var(--gray);
+      }
+
+      &:not(:last-child) {
+        border-bottom: 0.1rem solid var(--extra-light-gray);
+      }
+    }
+  }
+}

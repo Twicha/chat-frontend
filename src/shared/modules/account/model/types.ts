@@ -10,4 +10,5 @@ export interface IAccount {
   firstName: string;
   lastName: string;
   phone: string;
+  color?: string;
 }
