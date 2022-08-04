@@ -2,7 +2,11 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { AxiosResponse } from "axios";
 
-import { fetchAddContact, fetchGetUsers } from "src/shared/api";
+import {
+  fetchAddContact,
+  fetchDeleteContact,
+  fetchGetUsers,
+} from "src/shared/api";
 
 import { IUser } from "src/shared/models";
 import { accountSlice } from "../../account";
@@ -10,7 +14,7 @@ import { accountSlice } from "../../account";
 const { setContacts } = accountSlice.actions;
 
 export const fetchGetContactsAction = createAsyncThunk(
-  "contactsEntity/fetchGetContacts",
+  "contacts/fetchGetContacts",
   async (ids: string[], thunkAPI) => {
     try {
       const { data }: AxiosResponse<IUser[]> = await fetchGetUsers({ ids });
@@ -23,7 +27,7 @@ export const fetchGetContactsAction = createAsyncThunk(
 );
 
 export const fetchAddContactAction = createAsyncThunk(
-  "contactsFeature/fetchAddContact",
+  "contacts/fetchAddContact",
   async (userId: string, thunkAPI) => {
     try {
       const { data }: AxiosResponse<string[]> = await fetchAddContact({
@@ -31,8 +35,23 @@ export const fetchAddContactAction = createAsyncThunk(
       });
 
       thunkAPI.dispatch(setContacts(data));
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-      return data;
+export const fetchDeleteContactAction = createAsyncThunk(
+  "contacts/fetchDeleteContact",
+  async (userId: string, thunkAPI) => {
+    try {
+      const { data }: AxiosResponse<string[]> = await fetchDeleteContact({
+        userId,
+      });
+
+      thunkAPI.dispatch(setContacts(data));
+
+      return userId;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }
