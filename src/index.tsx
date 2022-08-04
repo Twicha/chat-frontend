@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 
 import App from "./app/App";
 
-import { setupStore } from "./app/store";
+import { setupStore } from "./shared/store";
 
 import "./shared/styles/index.scss";
 

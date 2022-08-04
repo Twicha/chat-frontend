@@ -1,10 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 
-import {
-  BasePopupState,
-  IPopupCloseAllPayload,
-  IPopupClosePayload,
-} from "../model";
+import { BasePopupState, IPopupClosePayload } from "../model";
 
 export const closePopup = (
   state: BasePopupState,
@@ -14,24 +10,13 @@ export const closePopup = (
     document.body.classList.remove("overflow-hidden");
   }
 
-  if (payload.callback) {
-    payload.callback();
-  }
-
   state.showedPopups = state.showedPopups.filter(
     (popup) => popup !== payload.name
   );
 };
 
-export const closeAllPopup = (
-  state: BasePopupState,
-  { payload }: PayloadAction<IPopupCloseAllPayload | undefined>
-) => {
+export const closeAllPopup = (state: BasePopupState) => {
   document.body.classList.remove("overflow-hidden");
-
-  if (payload?.callback) {
-    payload.callback();
-  }
 
   state.showedPopups = [];
 };

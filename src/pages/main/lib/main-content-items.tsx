@@ -1,10 +1,8 @@
 import { ReactElement } from "react";
 
-import {
-  EContentItemName,
-  IActiveContentItem,
-  MainContent,
-} from "src/entities/main-content";
+import { EContentItemName, IActiveContentItem } from "src/shared/store/slices";
+
+import { MainContent } from "src/entities/main-content";
 
 import { LanguageSettings } from "src/features/language";
 

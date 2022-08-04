@@ -4,7 +4,7 @@ import { AuthForm, IAuthFormData } from "src/shared/components";
 
 import { useAppDispatch } from "src/shared/hooks";
 
-import { fetchRegistrationAction } from "src/shared/modules";
+import { fetchRegistrationAction } from "src/shared/store/slices";
 
 import { AuthLanguageSwitcher } from "src/features/language";
 

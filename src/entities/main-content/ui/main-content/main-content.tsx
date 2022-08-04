@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 import { useAppDispatch } from "src/shared/hooks";
 
-import { IActiveContentItem, mainContentSlice } from "../../model";
+import { IActiveContentItem, mainContentSlice } from "src/shared/store/slices";
 
 import "./main-content.scss";
 

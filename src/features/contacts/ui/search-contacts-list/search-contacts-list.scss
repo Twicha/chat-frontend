@@ -1,0 +1,20 @@
+.search-contacts-list {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    &-btn {
+      margin-left: 1rem;
+      color: var(--dark-blue);
+
+      &:hover {
+        color: var(--dark-blue-lighten);
+      }
+
+      &-icon {
+        transition: 0.3s;
+      }
+    }
+  }
+}

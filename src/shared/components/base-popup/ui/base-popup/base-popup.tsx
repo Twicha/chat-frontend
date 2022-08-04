@@ -30,7 +30,6 @@ interface Props {
   isWithoutPadding?: boolean;
   isWithoutOverflow?: boolean;
   isMobileBottom?: boolean;
-  onClose?: () => void;
 }
 
 export const BasePopup: FC<PropsWithChildren<Props>> = ({
@@ -39,7 +38,6 @@ export const BasePopup: FC<PropsWithChildren<Props>> = ({
   isWithoutPadding = false,
   isMobileBottom = true,
   children,
-  onClose,
 }): ReactElement => {
   const dispatch = useAppDispatch();
 
@@ -70,16 +68,10 @@ export const BasePopup: FC<PropsWithChildren<Props>> = ({
   );
 
   const onCloseHandler = useCallback(() => {
-    const callback = () => {
-      if (onClose) {
-        onClose();
-      }
-    };
-
     setCurrentRoute(undefined);
 
-    dispatch(closePopupAction({ callback, name }));
-  }, [onClose, name, dispatch]);
+    dispatch(closePopupAction({ name }));
+  }, [name, dispatch]);
 
   const closePopup = (e: TouchEvent | MouseEvent) => {
     const target = e.target as HTMLElement;

@@ -4,10 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { useAppDispatch, useAppSelector } from "src/shared/hooks";
 
-import {
-  accountSlice,
-  fetchGetAccountAction,
-} from "src/shared/modules/account";
+import { accountSlice, fetchGetAccountAction } from "src/shared/store/slices";
 
 import { LoginPage, MainPage, Page404, RegistrationPage } from "src/pages";
 

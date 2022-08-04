@@ -8,7 +8,9 @@ import { BaseBox } from "src/shared/components";
 
 import { changeLanguage, languageList } from "src/shared/lib";
 
-import { IActiveContentItem, MainContent } from "src/entities/main-content";
+import { IActiveContentItem } from "src/shared/store/slices";
+
+import { MainContent } from "src/entities/main-content";
 
 import { langItems } from "../../lib";
 

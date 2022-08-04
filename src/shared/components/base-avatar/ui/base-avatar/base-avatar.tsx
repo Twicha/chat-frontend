@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 
 import classNames from "classnames";
 
-import { IAccount } from "src/shared/modules";
+import { IUser } from "src/shared/models";
 
 import { TBaseAvatarSize } from "../../model";
 
@@ -10,7 +10,7 @@ import "./base-avatar.scss";
 
 interface Props {
   className?: string;
-  account: IAccount;
+  account: IUser;
   size?: TBaseAvatarSize;
 }
 
