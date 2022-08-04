@@ -4,6 +4,7 @@ import { IUser } from "src/shared/models";
 
 import {
   fetchAddContactAction,
+  fetchDeleteContactAction,
   fetchGetContactsAction,
 } from "./contacts.thunk";
 
@@ -13,6 +14,8 @@ const initialState: ContactsState = {
   contacts: [],
   isLoadingGet: false,
   isLoadingAdd: false,
+  isLoadingDelete: false,
+  isCompleted: false,
 };
 
 export const contactsSlice = createSlice({
@@ -28,6 +31,8 @@ export const contactsSlice = createSlice({
       action: PayloadAction<IUser[]>
     ) => {
       state.isLoadingGet = false;
+
+      state.isCompleted = true;
 
       state.contacts = action.payload;
     },
@@ -45,6 +50,22 @@ export const contactsSlice = createSlice({
     },
     [fetchAddContactAction.rejected.type]: (state) => {
       state.isLoadingAdd = false;
+    },
+    [fetchDeleteContactAction.fulfilled.type]: (
+      state,
+      action: PayloadAction<string>
+    ) => {
+      state.contacts = state.contacts.filter(
+        (contact) => contact.id !== action.payload
+      );
+
+      state.isLoadingDelete = false;
+    },
+    [fetchDeleteContactAction.pending.type]: (state) => {
+      state.isLoadingDelete = true;
+    },
+    [fetchDeleteContactAction.rejected.type]: (state) => {
+      state.isLoadingDelete = false;
     },
   },
 });

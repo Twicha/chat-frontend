@@ -31,7 +31,9 @@ export const ContactsTab: FC<Props> = ({ className }): ReactElement => {
 
   const { account } = useAppSelector(({ account }) => account);
 
-  const { contacts, isLoadingGet } = useAppSelector(({ contacts }) => contacts);
+  const { contacts, isLoadingGet, isCompleted } = useAppSelector(
+    ({ contacts }) => contacts
+  );
 
   const isAddContactsPopupActive: boolean = useMemo(
     () => activePopups.some(({ name }) => name === EPopupName.SEARCH_CONTACTS),
@@ -50,7 +52,7 @@ export const ContactsTab: FC<Props> = ({ className }): ReactElement => {
 
   return (
     <div className={classNames("contacts-tab", className)}>
-      {!!contacts.length && !isLoadingGet && (
+      {!!contacts.length && (!isCompleted ? !isLoadingGet : true) && (
         <Fragment>
           <ContactsList className="contacts-tab__list" />
           <button
@@ -61,7 +63,7 @@ export const ContactsTab: FC<Props> = ({ className }): ReactElement => {
           </button>
         </Fragment>
       )}
-      {!contacts.length && !isLoadingGet && (
+      {!contacts.length && !isLoadingGet && isCompleted && (
         <div className="contacts-tab__empty">
           <Trans
             t={t}
@@ -77,7 +79,7 @@ export const ContactsTab: FC<Props> = ({ className }): ReactElement => {
           />
         </div>
       )}
-      {isLoadingGet && <BaseLoader />}
+      {isLoadingGet && !isCompleted && <BaseLoader />}
       {isAddContactsPopupActive && <SearchContactsPopup />}
     </div>
   );
