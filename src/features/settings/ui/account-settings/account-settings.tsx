@@ -6,9 +6,9 @@ import { BaseButton } from "src/shared/components";
 
 import { useAppDispatch } from "src/shared/hooks";
 
-import { authSlice } from "src/shared/modules";
+import { authSlice, IActiveContentItem } from "src/shared/store/slices";
 
-import { IActiveContentItem, MainContent } from "src/entities/main-content";
+import { MainContent } from "src/entities/main-content";
 
 import { AccountForm } from "../account-form";
 

@@ -1,0 +1,45 @@
+.contacts-tab {
+  --padding: 3rem 1.5rem 10rem;
+  position: relative;
+
+  &__empty {
+    padding: var(--padding);
+    height: 100%;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    color: var(--black);
+
+    &-btn {
+      font-size: 1.8rem;
+      color: var(--blue);
+      text-decoration: underline;
+    }
+  }
+
+  &__list {
+    padding: var(--padding);
+    height: 100%;
+    overflow: auto;
+  }
+
+  &__add-btn {
+    min-width: 6rem;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    background: var(--blue);
+    border-radius: 50%;
+    color: var(--white);
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icon {
+      min-width: 2rem;
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

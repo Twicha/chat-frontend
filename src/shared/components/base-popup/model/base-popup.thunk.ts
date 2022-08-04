@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { basePopupSlice } from "./base-popup.slice";
 
-import { IPopupCloseAllPayload, IPopupClosePayload } from "./types";
+import { IPopupClosePayload } from "./types";
 
 const { closePopup, hidePopup, closeAllPopup, hideAllPopup } =
   basePopupSlice.actions;
@@ -20,8 +20,8 @@ export const closePopupAction = createAsyncThunk(
 
 export const closeAllPopupAction = createAsyncThunk(
   "basePopup/closePopup",
-  async (payload: IPopupCloseAllPayload, thunkAPI) => {
-    thunkAPI.dispatch(closeAllPopup(payload));
+  async (_, thunkAPI) => {
+    thunkAPI.dispatch(closeAllPopup());
 
     setTimeout(() => {
       thunkAPI.dispatch(hideAllPopup());

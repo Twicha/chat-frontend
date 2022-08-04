@@ -1,0 +1,42 @@
+.user-item {
+  width: 100%;
+
+  &,
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__avatar {
+    margin-right: 1rem;
+  }
+
+  &__info,
+  &__container {
+    min-width: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+
+  &__name,
+  &__phone {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__name {
+    margin-bottom: 0.4rem;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  &__phone {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: var(--gray);
+  }
+}

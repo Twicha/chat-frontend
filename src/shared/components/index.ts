@@ -17,3 +17,7 @@ export * from "./base-avatar";
 export * from "./base-popup";
 
 export * from "./base-message-popup";
+
+export * from "./user-item";
+
+export * from "./base-loader";

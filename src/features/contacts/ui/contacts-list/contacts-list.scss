@@ -1,0 +1,40 @@
+.contacts-list {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    &-controls {
+      margin-left: 1rem;
+      display: flex;
+      align-items: center;
+    }
+
+    &-btn {
+      color: var(--dark-blue);
+
+      &:hover {
+        color: var(--dark-blue-lighten);
+      }
+
+      &--delete {
+        color: var(--red);
+
+        &:hover {
+          color: var(--red-lighten);
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+
+      &-icon {
+        min-width: 2.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        transition: 0.3s;
+      }
+    }
+  }
+}

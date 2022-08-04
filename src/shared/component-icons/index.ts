@@ -9,3 +9,7 @@ export * from "./contacts";
 export * from "./cross";
 
 export * from "./globe";
+
+export * from "./plus";
+
+export * from "./trash";

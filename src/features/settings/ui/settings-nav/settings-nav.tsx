@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 import { useAppDispatch } from "src/shared/hooks";
 
-import { EContentItemName, mainContentSlice } from "src/entities/main-content";
+import { EContentItemName, mainContentSlice } from "src/shared/store/slices";
 
 import { settingsBtnIcons, settingsBtns } from "../../lib";
 

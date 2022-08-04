@@ -1,5 +1,6 @@
 export enum EPopupName {
   MESSAGE = "message",
+  SEARCH_CONTACTS = "add-contacts",
 }
 
 export interface IPopupMessage {
@@ -26,11 +27,6 @@ export interface IPopupOpenPayload {
 
 export interface IPopupClosePayload {
   name: EPopupName;
-  callback?: () => void;
-}
-
-export interface IPopupCloseAllPayload {
-  callback?: () => void;
 }
 
 export interface BasePopupState {

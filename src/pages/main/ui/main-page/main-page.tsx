@@ -4,9 +4,9 @@ import classNames from "classnames";
 
 import { BaseMessagePopup } from "src/shared/components";
 
-import { useAppDispatch, useAppSelector } from "src/shared/hooks";
+import { mainContentSlice } from "src/shared/store/slices";
 
-import { mainContentSlice } from "src/entities/main-content";
+import { useAppDispatch, useAppSelector } from "src/shared/hooks";
 
 import { Sidebar } from "src/widgets/sidebar";
 

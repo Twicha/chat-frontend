@@ -1,7 +1,7 @@
 @import "src/shared/styles/mixins/media-queries";
 
 .sidebar {
-  height: 100vh;
+  height: 100%;
   border-right: 0.1rem solid var(--extra-light-gray);
   display: flex;
   flex-direction: column;
@@ -9,5 +9,10 @@
 
   @include tablet {
     border: 0;
+  }
+
+  &__content {
+    height: calc(100% - 5rem);
+    overflow: hidden;
   }
 }

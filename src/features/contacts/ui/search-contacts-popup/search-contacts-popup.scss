@@ -1,0 +1,29 @@
+@import "src/shared/styles/mixins/media-queries";
+
+.search-contacts-popup {
+  --padding: 2.5rem;
+  width: 40rem;
+
+  @include mobile-large {
+    --padding: 1.5rem;
+    width: 100%;
+  }
+
+  &__form {
+    padding: var(--padding) var(--padding) 0;
+  }
+
+  &__container {
+    height: 70vh;
+    padding: var(--padding);
+    overflow: auto;
+  }
+
+  &__empty {
+    margin-top: 3rem;
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    text-align: center;
+    color: var(--gray);
+  }
+}

@@ -2,6 +2,8 @@ import classNames from "classnames";
 
 import { FC, ReactElement, useState } from "react";
 
+import { ContactsTab } from "src/features/contacts";
+
 import { SettingsTab } from "src/features/settings";
 
 import { ESidebarTabs } from "../../model";
@@ -14,10 +16,17 @@ interface Props {
   className?: string;
 }
 
-const tabsContent: Record<ESidebarTabs, ReactElement> = {
-  [ESidebarTabs.CONTACTS]: <div>CONTACTS</div>,
-  [ESidebarTabs.CHATS]: <div>CHATS</div>,
-  [ESidebarTabs.SETTINGS]: <SettingsTab />,
+const tabsContent: Record<
+  ESidebarTabs,
+  (payload?: { className?: string }) => ReactElement
+> = {
+  [ESidebarTabs.CONTACTS]: (payload) => (
+    <ContactsTab className={payload?.className} />
+  ),
+  [ESidebarTabs.CHATS]: () => <div>CHATS</div>,
+  [ESidebarTabs.SETTINGS]: (payload) => (
+    <SettingsTab className={payload?.className} />
+  ),
 };
 
 export const Sidebar: FC<Props> = ({ className }): ReactElement => {
@@ -25,7 +34,7 @@ export const Sidebar: FC<Props> = ({ className }): ReactElement => {
 
   return (
     <aside className={classNames("sidebar", className)}>
-      {tabsContent[activeTab]}
+      {tabsContent[activeTab]({ className: "sidebar__content" })}
 
       <SidebarTabs
         className="sidebar__tabs"

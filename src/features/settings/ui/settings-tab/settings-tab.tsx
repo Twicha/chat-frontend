@@ -1,18 +1,21 @@
+import classNames from "classnames";
 import { FC, ReactElement, useMemo } from "react";
 
 import { useAppDispatch, useAppSelector } from "src/shared/hooks";
 
-import { mainContentSlice, EContentItemName } from "src/entities/main-content";
+import { EContentItemName, mainContentSlice } from "src/shared/store/slices";
 
 import { AccountBlock, SettingsNav } from "../";
 
 import "./settings-tab.scss";
 
-interface Props {}
+interface Props {
+  className?: string;
+}
 
 const { addContentItem } = mainContentSlice.actions;
 
-export const SettingsTab: FC<Props> = (): ReactElement => {
+export const SettingsTab: FC<Props> = ({ className }): ReactElement => {
   const dispatch = useAppDispatch();
 
   const { activeContent } = useAppSelector(({ mainContent }) => mainContent);
@@ -23,7 +26,7 @@ export const SettingsTab: FC<Props> = (): ReactElement => {
   );
 
   return (
-    <div className="settings-tab">
+    <div className={classNames("settings-tab", className)}>
       <AccountBlock
         className="settings-tab__account"
         isActive={lastActiveContentName === EContentItemName.ACCOUNT_SETTINGS}

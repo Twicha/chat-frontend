@@ -15,7 +15,7 @@ import {
 
 import { useAppDispatch, useAppSelector } from "src/shared/hooks";
 
-import { fetchUpdateAccountAction } from "src/shared/modules";
+import { fetchUpdateAccountAction } from "src/shared/store/slices";
 
 import { formErrors } from "../../lib";
 
