@@ -1,0 +1,9 @@
+.chats-tab {
+  --padding: 1.5rem;
+
+  &__chat-list {
+    padding: var(--padding);
+    height: 100%;
+    overflow: auto;
+  }
+}

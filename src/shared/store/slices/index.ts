@@ -9,3 +9,5 @@ export * from "./contacts";
 export * from "./main-content";
 
 export * from "./users";
+
+export * from "./chats";

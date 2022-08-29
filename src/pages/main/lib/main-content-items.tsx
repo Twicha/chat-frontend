@@ -7,6 +7,7 @@ import { MainContent } from "src/entities/main-content";
 import { LanguageSettings } from "src/features/language";
 
 import { AccountSettings } from "src/features/settings";
+import { ChatBlock } from "src/widgets/chats";
 
 export const mainContentItems: Record<
   EContentItemName,
@@ -35,13 +36,11 @@ export const mainContentItems: Record<
     </MainContent>
   ),
   [EContentItemName.CHAT]: (item: IActiveContentItem, index: number) => (
-    <MainContent
+    <ChatBlock
       key={item.name + index}
       contentItem={item}
       positionNumber={index}
-    >
-      chat {index}
-    </MainContent>
+    />
   ),
   [EContentItemName.LANGUAGE_SETTINGS]: (
     item: IActiveContentItem,

@@ -1,0 +1,76 @@
+.chat-card {
+  padding: 0.8rem;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius-medium);
+  text-align: left;
+
+  &:hover:not(&--active) {
+    background: var(--extra-light-purple);
+  }
+
+  &--active {
+    background: var(--blue);
+  }
+
+  &__container {
+    min-width: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+  }
+
+  &__container {
+    margin-left: 1rem;
+    min-width: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title,
+  &__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 1.6rem;
+    line-height: 2rem;
+    color: var(--black);
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    color: var(--gray);
+  }
+
+  &__time {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    color: var(--gray);
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &--active &__title,
+  &--active &__description,
+  &--active &__time {
+    color: var(--white);
+  }
+}

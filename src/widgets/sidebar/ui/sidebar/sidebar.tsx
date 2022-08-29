@@ -1,6 +1,7 @@
 import classNames from "classnames";
 
 import { FC, ReactElement, useState } from "react";
+import { ChatsTab } from "src/features/chats";
 
 import { ContactsTab } from "src/features/contacts";
 
@@ -23,7 +24,9 @@ const tabsContent: Record<
   [ESidebarTabs.CONTACTS]: (payload) => (
     <ContactsTab className={payload?.className} />
   ),
-  [ESidebarTabs.CHATS]: () => <div>CHATS</div>,
+  [ESidebarTabs.CHATS]: (payload) => (
+    <ChatsTab className={payload?.className} />
+  ),
   [ESidebarTabs.SETTINGS]: (payload) => (
     <SettingsTab className={payload?.className} />
   ),

@@ -1,0 +1,55 @@
+.chat-field {
+  --field-height: 5rem;
+
+  display: flex;
+  align-items: flex-end;
+
+  &__textarea {
+    padding: 1.5rem;
+    width: 100%;
+    min-height: var(--field-height);
+    height: var(--field-height);
+    line-height: 2rem;
+    resize: none;
+    border: 0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
+
+    &:focus {
+      outline: 0.2rem solid var(--gray);
+    }
+  }
+
+  &__btn {
+    margin-left: 1rem;
+    min-width: var(--field-height);
+    width: var(--field-height);
+    height: var(--field-height);
+    color: var(--white);
+    background: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &-icon {
+      animation: show-icon 0.3s forwards;
+
+      @keyframes show-icon {
+        from {
+          opacity: 0;
+          transform: scale(0);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      &--send {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+}
