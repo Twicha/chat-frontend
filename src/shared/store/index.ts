@@ -8,6 +8,7 @@ import {
   contactsReducer,
   mainContentReducer,
   usersReducer,
+  chatsReducer,
 } from "./slices";
 
 const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   basePopup: basePopupReducer,
   users: usersReducer,
   contacts: contactsReducer,
+  chats: chatsReducer,
 });
 
 export const setupStore = () => {

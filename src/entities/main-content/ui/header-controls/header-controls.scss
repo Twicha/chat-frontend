@@ -1,0 +1,24 @@
+.header-controls {
+  display: flex;
+  align-items: center;
+
+  &__btn {
+    min-width: 3.6rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-blue);
+
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    &-icon {
+      min-width: 2.4rem;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+}

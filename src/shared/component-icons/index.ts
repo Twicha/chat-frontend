@@ -13,3 +13,13 @@ export * from "./globe";
 export * from "./plus";
 
 export * from "./trash";
+
+export * from "./triple-dot";
+
+export * from "./phone";
+
+export * from "./search";
+
+export * from "./send";
+
+export * from "./micro";

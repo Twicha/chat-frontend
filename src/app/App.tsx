@@ -8,6 +8,8 @@ import { accountSlice, fetchGetAccountAction } from "src/shared/store/slices";
 
 import { LoginPage, MainPage, Page404, RegistrationPage } from "src/pages";
 
+import socket from "src/socket";
+
 import "src/shared/lib/i18n";
 
 import { PrivateRoute, PublicRoute } from "./providers";
@@ -20,6 +22,10 @@ function App() {
   const { token } = useAppSelector(({ auth }) => auth);
 
   const { account } = useAppSelector(({ account }) => account);
+
+  useEffect(() => {
+    socket.emit("message", { data: "fsdfsd" });
+  }, []);
 
   useEffect(() => {
     if (token && !account) {

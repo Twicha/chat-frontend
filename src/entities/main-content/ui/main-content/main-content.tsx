@@ -6,15 +6,23 @@ import classNames from "classnames";
 
 import { useAppDispatch } from "src/shared/hooks";
 
-import { IActiveContentItem, mainContentSlice } from "src/shared/store/slices";
+import {
+  EContentItemName,
+  IActiveContentItem,
+  mainContentSlice,
+} from "src/shared/store/slices";
 
 import "./main-content.scss";
+import { IUser } from "src/shared/models";
+import { UserItem } from "src/shared/components";
+import { HeaderControls } from "../header-controls";
 
 interface Props {
   className?: string;
   contentItem: IActiveContentItem;
   positionNumber: number;
   noPadding?: boolean;
+  chatParticipant?: IUser;
 }
 
 const { closeLastContentItem } = mainContentSlice.actions;
@@ -25,10 +33,13 @@ export const MainContent: FC<PropsWithChildren<Props>> = ({
   positionNumber,
   noPadding,
   contentItem,
+  chatParticipant,
 }): ReactElement => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
+
+  const isChat: boolean = contentItem.name === EContentItemName.CHAT;
 
   const closEContentItemName = () => dispatch(closeLastContentItem());
 
@@ -40,13 +51,33 @@ export const MainContent: FC<PropsWithChildren<Props>> = ({
       })}
     >
       <div className="main-content__header">
-        <button
-          className="main-content__header-btn"
-          onClick={closEContentItemName}
-        />
-        <h2 className="main-content__header-title">
-          {t(`mainContent.header.title.${contentItem.name}`)}
-        </h2>
+        <div className="main-content__header-container">
+          <button
+            className={classNames(
+              "main-content__header-btn",
+              "around-hover-btn",
+              {
+                "main-content__header-btn--first": isChat && !positionNumber,
+              }
+            )}
+            onClick={closEContentItemName}
+          />
+          {!isChat && (
+            <h2 className="main-content__header-title">
+              {t(`mainContent.header.title.${contentItem.name}`)}
+            </h2>
+          )}
+          {isChat && chatParticipant && (
+            <UserItem
+              className="main-content__header-participant"
+              user={chatParticipant}
+              size="medium"
+            />
+          )}
+        </div>
+        {isChat && chatParticipant && (
+          <HeaderControls className="main-content__header-controls" />
+        )}
       </div>
       <div className="main-content__children">{children}</div>
     </div>
